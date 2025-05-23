@@ -65,7 +65,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        l1_default {
             /* QWERTY
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | `     |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   | BKSPC |
@@ -75,16 +75,17 @@
  */
 
             bindings = <
-&kp GRAVE   &kp Q    &kp W      &kp E  &kp R                      &kp T                                               &kp Y     &kp U     &kp I      &kp O     &kp P     &kp BSPC
-&kp ESCAPE  &kp A    &kp S      &kp D  &layer_toggle_on_hold 1 F  &kp G                                               &kp H     &kp J     &kp K      &kp L     &kp SEMI  &kp ENTER
-&kp LSHFT   &kp Z    &kp X      &kp C  &kp V                      &hold LC(B) B  &kp SQT                   &kp SLASH  &kp N     &kp M     &kp COMMA  &kp DOT   &kp UP    &kp RSHFT
-&kp TAB     &kp ESC  &kp LCTRL         &kp LGUI                   &kp LALT       &sk LSHIFT  &mo 1  &mo 2  &kp SPACE  &kp LALT  &kp RGUI             &kp LEFT  &kp DOWN  &kp RIGHT
+&kp GRAVE   &kp Q    &kp W      &kp E  &kp R                      &kp T                                                             &kp Y      &kp U     &kp I      &kp O     &kp P      &kp BSPC
+&kp ESCAPE  &kp A    &kp S      &kp D  &layer_toggle_on_hold 1 F  &kp G                                                             &kp H      &kp J     &kp K      &kp L     &kp SEMI   &kp SQT
+&kp LSHFT   &kp Z    &kp X      &kp C  &kp V                      &hold LC(B) B  &kp LEFT_BRACKET                &kp RIGHT_BRACKET  &kp N      &kp M     &kp COMMA  &kp DOT   &kp SLASH  &kp RSHFT
+&kp TAB     &kp ESC  &kp LCTRL         &kp LGUI                   &kp SPACE      &sk LSHIFT        &mo 1  &mo 2  &kp SPACE          &kp ENTER  &kp RGUI             &kp LEFT  &kp DOWN   &kp RIGHT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            label = "Default";
         };
 
-        nav_layer {
+        l2_motion {
             /* NAV
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | Copy  |   1   |   2   |   3   |   4   |   5   |-----------------------------------|   6   |   7   |   8   |   9   |   0   | BSPC  |
@@ -101,9 +102,10 @@
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            label = "Motion";
         };
 
-        sym_layer {
+        l3_symbols {
             /* SYM
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | INS   |   !   |   @   |   #   |   $   |   %   |-----------------------------------|   ^   |   &   |   *   |   (   |   )   | DELETE|
@@ -120,6 +122,51 @@
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            label = "Symbols";
+        };
+
+        l4_mouse {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans
+            >;
+
+            label = "Mouse";
+        };
+
+        l5_media {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans
+            >;
+
+            label = "Media";
+        };
+
+        l6_icons {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans
+            >;
+
+            label = "Icons";
+        };
+
+        l7_keyboard {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans
+            >;
+
+            label = "Keyboard";
         };
 
         adj_layer {
@@ -139,6 +186,7 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            label = "TODO";
         };
     };
 };
